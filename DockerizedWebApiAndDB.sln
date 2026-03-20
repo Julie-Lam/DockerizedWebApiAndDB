@@ -5,9 +5,11 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockerizedWebApiAndDB", "DockerizedWebApiAndDB\DockerizedWebApiAndDB.csproj", "{A7C01D09-79E6-4273-885E-0F38C0392062}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{8390929D-8C31-439E-B8FA-97FA58128CF8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Items", "Database Items", "{2B62FD39-5B4B-43DE-B198-8C6E3794C2BD}"
 	ProjectSection(SolutionItems) = preProject
-		Db.sql = Db.sql
+		Database\Db.sql = Database\Db.sql
+		Database\Dockerfile = Database\Dockerfile
+		Database\entrypoint.sh = Database\entrypoint.sh
 	EndProjectSection
 EndProject
 Global

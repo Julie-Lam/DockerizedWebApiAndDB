@@ -15,15 +15,14 @@ namespace DockerizedWebApiAndDB.Controllers
         public List<Contact> Get()
         {
 
-            //var contacts = new List<Contact>()
-            //{
-            //    new Contact() {Name = "James Bond", PhoneNumber = "007"}, 
-            //    new Contact() {Name = "John Smith", PhoneNumber = "123"}
-            //};
-
             var contacts = new List<Contact>();
 
-            using (var connection = new SqlConnection(@"Data Source=localhost;Initial Catalog=SocialNetwork;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False"))
+            var localDbInstanceConnStr = @"Data Source=localhost;Initial Catalog=SocialNetwork;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
+
+
+            var builder = WebApplication.CreateBuilder();
+            var dockerComposeEnvVarConnStr = builder.Configuration.GetConnectionString("DefaultConnection"); 
+            using (var connection = new SqlConnection(dockerComposeEnvVarConnStr))
             {
                 connection.Open();
 
